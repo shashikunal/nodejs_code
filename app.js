@@ -173,7 +173,58 @@ let fs = require("fs");
 //   console.log("successfully file copied");
 // }); //src , destination folder
 
-fs.stat("Qspiders.txt", (err, status) => {
-  if (err) throw err;
-  console.log(status);
-});
+// fs.stat("Qspiders.txt", (err, status) => {
+//   if (err) throw err;
+//   console.log(status);
+// });
+
+//!Buffer and Streams
+//?Buffer means raw Data
+/**
+ * What Are Buffers?
+ * The Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data
+ */
+
+//?difference between a buffer and a stream is that a stream is a sequence that transfers information from or to a specified source, whereas a buffer is a sequence of bytes that is stored in memory. ... Opens a stream to a file. That stream can be read from, written to, or both.
+
+let buffer = Buffer.from("shashi");
+// console.log(buffer); //raw binary data
+//!Raw data is stored in instances of the Buffer class. A Buffer is similar to an array of integers but corresponds to a raw memory allocation outside the V8 heap
+
+// stream
+// types of Stream
+
+// ReadableStream //?reading buffer binary data
+// WritableStream //?Writing buffer Data
+// Duplex Stream //?reading and Writing
+// Transform Stream //?reading , writing and modifying stream
+// fs.readFile("index.txt", "utf-8", (err, data) => {
+//   if (err) throw err;
+//   console.log(data);
+// });
+
+//!Stream large data
+let readStream = fs.createReadStream("index.txt", "utf-8"); //reading stream
+
+//nodejs event
+// readStream.on("data", chunk => {
+//   console.log(chunk);
+// });
+
+//!if you have large data go with stream
+
+//Writable Stream
+let writeStream = fs.createWriteStream("shashi.txt"); //writing
+//read stream and write stream
+
+// readStream.on("data", chunk => {
+//   console.log("successfully data red");
+//   //write
+//   writeStream.write(chunk, err => {
+//     if (err) throw err;
+//     console.log("successfully data written");
+//   });
+// });
+
+// Duplex stream
+readStream.pipe(writeStream); // read and write use pipe => duplex
