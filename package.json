@@ -1,0 +1,22 @@
+{
+  "name": "nodejs_class",
+  "version": "1.0.0",
+  "description": "",
+  "main": "formData.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashikunal/nodejs_code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashikunal/nodejs_code/issues"
+  },
+  "homepage": "https://github.com/shashikunal/nodejs_code#readme",
+  "dependencies": {
+    "nodemailer": "^6.6.0"
+  }
+}

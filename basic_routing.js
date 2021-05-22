@@ -20,6 +20,22 @@ let server = http.createServer((req, res) => {
     case "/contact":
       path += "contact.html";
       break;
+    case "/style.css":
+      path += "style.css";
+      res.setHeader("content-type", "text/css");
+      break;
+    //redirection
+    case "/mani":
+      res.statusCode = 301;
+      res.setHeader("Location", "/login");
+      res.end();
+      break;
+    //?serve JSON data
+    case "/api":
+      path += "data.json";
+      res.setHeader("content-type", "application/json");
+      break;
+    
     default:
       path += "404.html";
       res.statusCode = 404;
