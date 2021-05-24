@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Subscription App</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #fff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #222;
+      }
+      section article {
+        width: 80%;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+      }
+      h2 {
+        font-size: 40px;
+        padding: 20px;
+      }
+      p {
+        font-size: 16px;
+        padding: 10px;
+      }
+      form {
+        width: 500px;
+      }
+      input {
+        width: 100%;
+        border: 1px solid #edefef;
+        padding: 10px;
+        border-radius: 3px;
+      }
+      label {
+        display: block;
+        color: #333;
+        font-weight: bold;
+        padding: 10px;
+      }
+      button {
+        border-color: #00d9b9;
+        background-color: #00d9b9;
+        color: #fff;
+        border-radius: 7px;
+        width: 70%;
+        padding: 20px 30px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <article>
+        <h2>Email Subscription</h2>
+        <p>
+          Instantly see a list of all your subscription emails. Unsubscribe
+          easily from whatever you don’t want.
+        </p>
+        <form method="POST" action="/">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="enter valid email address"
+          />
+          <button>Subscribe</button>
+        </form>
+      </article>
+    </section>
+  </body>
+</html>
