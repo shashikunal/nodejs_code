@@ -14,7 +14,35 @@ let server = http.createServer((req, res) => {
       });
 
       req.on("end", _ => {
-        res.end(parse(body.valueOf()).email);
+        let email = parse(body.valueOf()).email;
+        res.end(
+          parse(body.valueOf()).email + " " + `Thank you for subscription`
+        );
+        //?Node mailer block
+        let transport = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: "mywebclass63@gmail.com",
+            pass: "sanjuvanju",
+          },
+        });
+
+        let mailOption = {
+          from: "mywebclass63@gmail.com",
+          to: `${email} , shashikunal@gmail.com`,
+          subject: "Mail Subscription Testing",
+          html: ` <h2>Welcome to Jspiders</h2>
+            <p>JSpiders is the world's ace Java development training organization with an aim to bridge the gap between the demands of the industry and the curriculum of ...</p>
+            <button>JOIN Course</button>
+          `,
+        };
+
+        transport.sendMail(mailOption, err => {
+          if (err) throw err;
+          console.log("successfully mail sent ");
+        });
+
+        //?end node mailer block
       });
     } else {
       res.end(null);
